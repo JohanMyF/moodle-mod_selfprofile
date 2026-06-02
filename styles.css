@@ -1,0 +1,90 @@
+/*
+ * This file is part of Moodle - https://moodle.org/
+ *
+ * Moodle is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * Moodle is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Moodle. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Styles for the SelfProfile activity module.
+ *
+ * @package    mod_selfprofile
+ * @copyright  2026 Johan Venter
+ * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+.path-mod-selfprofile .selfprofile-category-details,
+.path-mod-selfprofile .selfprofile-edit-statement-details {
+    position: relative;
+}
+
+.path-mod-selfprofile .selfprofile-category-summary {
+    padding-right: 3.5rem;
+}
+
+.path-mod-selfprofile .selfprofile-item-summary {
+    font-weight: 600;
+    border-left: 0.35rem solid #1177d1;
+    background-color: #eef6ff;
+}
+
+.path-mod-selfprofile .selfprofile-existing-item-summary {
+    color: #0b5873;
+    margin-bottom: 0;
+    padding-right: 3.5rem;
+}
+
+.path-mod-selfprofile .selfprofile-edit-statement-details[open] > summary.selfprofile-existing-item-summary,
+.path-mod-selfprofile .selfprofile-add-statement-details[open] > summary.selfprofile-item-summary {
+    background-color: #ddeeff;
+}
+
+.path-mod-selfprofile .selfprofile-add-statement-details,
+.path-mod-selfprofile .selfprofile-edit-statement-details {
+    margin-left: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.path-mod-selfprofile .selfprofile-scoring-direction-select {
+    cursor: help;
+    max-width: 16rem;
+}
+
+.path-mod-selfprofile .selfprofile-delete-form {
+    position: absolute;
+    right: 0.65rem;
+    z-index: 2;
+    margin: 0;
+}
+
+.path-mod-selfprofile .selfprofile-category-delete-form {
+    top: 0.2rem;
+}
+
+.path-mod-selfprofile .selfprofile-item-delete-form {
+    top: 0.1rem;
+}
+
+.path-mod-selfprofile .selfprofile-delete-button {
+    color: #6a1a1a;
+    text-decoration: none;
+    font-size: 1.05rem;
+    line-height: 1;
+    padding: 0.35rem 0.5rem;
+}
+
+.path-mod-selfprofile .selfprofile-delete-button:hover,
+.path-mod-selfprofile .selfprofile-delete-button:focus {
+    color: #b00020;
+    text-decoration: none;
+}
