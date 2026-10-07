@@ -1,3 +1,35 @@
+name: SelfProfile CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Moodle 4.5 / PHP 8.3 / MariaDB
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    services:
+      mariadb:
+        image: mariadb:10.11
+        env:
+          MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: '1'
+          MYSQL_CHARACTER_SET_SERVER: utf8mb4
+          MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
       - name: Check out SelfProfile
         uses: actions/checkout@v6
         with:
@@ -50,6 +82,9 @@
       - name: JavaScript and CSS checks
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: moodle-plugin-ci grunt --max-lint-warnings 0
+
+      # This first workflow checks code and installation only.
+      # Add PHPUnit and Behat steps when the plugin has corresponding tests.
 
       # This first workflow checks code and installation only.
       # Add PHPUnit and Behat steps when the plugin has corresponding tests.
